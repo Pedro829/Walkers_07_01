@@ -10,6 +10,9 @@ TagManager:
   - Minion
   - ScoreBoard
   - Profit
+  - Player_Near
+  - Player_Far
+  - PlayerFar
   layers:
   - Default
   - TransparentFX
@@ -17,7 +20,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Player_Near
   - 
   - 
   - 

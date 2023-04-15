@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+
 /// <summary>
 /// //////////////////////////////////////////////////////////////////////////////////////
 /// ///////////  ARTIFICIAL INTELLIGENCE  MINION Script 
@@ -21,11 +22,18 @@ public class ScMinionAI_Far : MonoBehaviour {
     protected DateTime date_lastChamge;  // 
     protected double periodMilisec;
 
+
     protected Vector3 movement;  // Direction of the force that will be exerted on the gameobject
     protected float minionsMovUnits;  //  Amount of force that will be exerted on the gameobject
 
     public List<gameElement> Teammates_list;
     public List<gameElement> opponents_list;
+
+    public float rangoDeAlerta;
+    public LayerMask capaDelJugador;
+    bool estarAlerta;
+    public Transform jugador;
+    public float velocidad;
 
     // Use this for initialization
     /// <summary>
@@ -42,6 +50,8 @@ public class ScMinionAI_Far : MonoBehaviour {
 
         date_lastChamge = DateTime.Now; // We initialize the date value
         periodMilisec = 1500f;  // We change each "periodoMiliseg"/1000 seconds
+
+
 
         movement = new Vector3(0.0f, 0.0f, 0.0f); // We initialize the date value
         minionsMovUnits = 1f; // We initialize the date value
@@ -94,6 +104,15 @@ public class ScMinionAI_Far : MonoBehaviour {
                 " - element_opponent posicion y : " + posicion.y);
         }  // Fin de - foreach (gameElement element_mate in Teammates_list)
 
+        estarAlerta = Physics.CheckSphere(transform.position, rangoDeAlerta, capaDelJugador);
+
+        if(estarAlerta == true)
+        {
+            Vector3 posJugador = new Vector3(jugador.position.x, transform.position.y, jugador.position.z);
+            transform.LookAt(posJugador);
+            transform.position = Vector3.MoveTowards(transform.position, posJugador, velocidad * Time.deltaTime);
+        }
+
         foreach (gameElement elementProfit in Game.GetComponent<ScGameGlobalData>().listProfits)
         {
             Vector3 posicion = elementProfit.giveToMePosition();
@@ -108,6 +127,12 @@ public class ScMinionAI_Far : MonoBehaviour {
         }  // Fin de - foreach (gameElement element_mate in Teammates_list)
 
     }  // FIn de - void Update()
+
+    private void onDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, rangoDeAlerta);
+    }
 
     /// <summary>
     /// //////////////////////////////////////////////////////////////////////////////////////
