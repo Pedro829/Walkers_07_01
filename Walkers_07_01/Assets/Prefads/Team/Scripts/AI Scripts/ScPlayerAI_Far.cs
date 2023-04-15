@@ -27,6 +27,12 @@ public class ScPlayerAI_Far : MonoBehaviour {
     public List<gameElement> Teammates_list;
     public List<gameElement> opponents_list;
 
+    public float rangoDeAlerta;
+    public LayerMask capaDelJugador;
+    bool estarAlerta;
+    public Transform jugador;
+    public float velocidad;
+
     /// <summary>
     /// ///////////  ARTIFICIAL INTELLIGENCE  MINION Script 
     /// Author : 	
@@ -92,6 +98,15 @@ public class ScPlayerAI_Far : MonoBehaviour {
                 " - element_opponent posicion z : " + posicion.z +
                 " - element_opponent posicion y : " + posicion.y);
         }  // Fin de - foreach (gameElement element_mate in Teammates_list)
+
+        estarAlerta = Physics.CheckSphere(transform.position, rangoDeAlerta, capaDelJugador);
+
+        if (estarAlerta == true)
+        {
+            Vector3 posJugador = new Vector3(jugador.position.x, transform.position.y, jugador.position.z);
+            transform.LookAt(posJugador);
+            transform.position = Vector3.MoveTowards(transform.position, posJugador, velocidad * Time.deltaTime);
+        }
 
         foreach (gameElement elementProfit in Game.GetComponent<ScGameGlobalData>().listProfits)
         {

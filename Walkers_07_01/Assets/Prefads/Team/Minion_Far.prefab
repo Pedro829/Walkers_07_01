@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 23033391638399560}
   - component: {fileID: 135576482008626920}
   - component: {fileID: 33656851163262734}
-  - component: {fileID: 114030314761279188}
   - component: {fileID: -908596991817929573}
+  - component: {fileID: 2761527179882667510}
   m_Layer: 0
   m_Name: Minion_Far
   m_TagString: Minion
@@ -130,27 +130,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1640471787992330}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114030314761279188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1640471787992330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48148835ecd33c44998c50cdcbfa94ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Game: {fileID: 0}
-  Teammates_list: []
-  opponents_list: []
-  rangoDeAlerta: 1e+9
-  capaDelJugador:
-    serializedVersion: 2
-    m_Bits: 64
-  jugador: {fileID: 4562943173169988, guid: c4356cc8b0f2e0949af1b8313fb6bcac, type: 3}
-  velocidad: 10
 --- !u!114 &-908596991817929573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,3 +145,24 @@ MonoBehaviour:
   element: {fileID: 0}
   elementId: 0
   elementTeam: 0
+--- !u!114 &2761527179882667510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640471787992330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48148835ecd33c44998c50cdcbfa94ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Game: {fileID: 0}
+  Teammates_list: []
+  opponents_list: []
+  rangoDeAlerta: 1000
+  capaDelJugador:
+    serializedVersion: 2
+    m_Bits: 64
+  jugador: {fileID: 4044713416469964, guid: 61475cd4f340d9341874cc782d1eba6c, type: 3}
+  velocidad: 10

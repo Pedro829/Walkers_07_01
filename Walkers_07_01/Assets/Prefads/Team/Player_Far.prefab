@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 135634556124495048}
   - component: {fileID: 114278926175659492}
   - component: {fileID: 1906153558252090604}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player_Far
   m_TagString: PlayerFar
   m_Icon: {fileID: 0}
@@ -160,6 +160,12 @@ MonoBehaviour:
   Game: {fileID: 0}
   Teammates_list: []
   opponents_list: []
+  rangoDeAlerta: 1000
+  capaDelJugador:
+    serializedVersion: 2
+    m_Bits: 256
+  jugador: {fileID: 4540204775676642, guid: d8406c99c0b450e41b3f75ffccfe0102, type: 3}
+  velocidad: 10
 --- !u!114 &1906153558252090604
 MonoBehaviour:
   m_ObjectHideFlags: 0

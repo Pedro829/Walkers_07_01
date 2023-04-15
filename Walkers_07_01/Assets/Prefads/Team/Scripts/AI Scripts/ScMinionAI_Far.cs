@@ -51,8 +51,6 @@ public class ScMinionAI_Far : MonoBehaviour {
         date_lastChamge = DateTime.Now; // We initialize the date value
         periodMilisec = 1500f;  // We change each "periodoMiliseg"/1000 seconds
 
-
-
         movement = new Vector3(0.0f, 0.0f, 0.0f); // We initialize the date value
         minionsMovUnits = 1f; // We initialize the date value
 
